@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 async function connectDB() {
   try {
-    await mongoose.connect("mongodb+srv://user1:pass1@cluster1.ddwffa4.mongodb.net/test");
+    await mongoose.connect("mongodb+srv://user1:______@cluster1.ddwffa4.mongodb.net/test");
 
     console.log("Connected to MongoDB Atlas");
   } catch (error) {
