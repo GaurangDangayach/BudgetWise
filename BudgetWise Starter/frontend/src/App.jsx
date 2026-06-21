@@ -11,4 +11,22 @@ import History from "./components/Users/History";
 import UserProfile from "./components/Users/UserProfile";
 import AuthRoute from "./components/Auth/AuthRoute";
 
+function App(){
+    const user = useSelector((state) => state?.auth?.user);
+    return (
+        <BrowserRouter>
+        {user? <PrivateNavbar/> : <PublicNavbar/>}
+        <Routes>
+            <Route path="/" element={<HeroSection/>} />
+            <Route path="/login" element={<LoginForm/>} />
+            <Route path="/register" element={<RegistrationForm/>} />
+            <Route path="/add-transaction" element={<AuthRoute><TransactionForm /></AuthRoute>} />
+            <Route path="/dashboard" element={<AuthRoute><Dashboard /></AuthRoute>} />
+            <Route path="/history" element={<AuthRoute><History /></AuthRoute>} />
+            <Route path="/profile" element={<AuthRoute><UserProfile /></AuthRoute>} />
+        </Routes>
+        </BrowserRouter>
+    )
+};
 
+export default App;
